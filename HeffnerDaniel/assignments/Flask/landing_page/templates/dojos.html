@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Dojo Form</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+	<div id="container">
+		<h1>Dojo Form</h1>
+		<form action="">
+			<label for="name">Name:</label>
+			<input type="text" name="ninjaname" id="name">
+			<label for="clan">Clan:</label>
+			<input type="text" name="ninjaclan" id="clan">
+			<label for="email">Email:</label>
+			<input type="text" name="ninjaemail" id="email">
+			<label for="skill">Skill:</label>
+			<input type="text" name="ninjaskill" id="skill">
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+</body>
+</html>
