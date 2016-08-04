@@ -1,0 +1,13 @@
+* {
+	font-family: sans-serif;
+}
+
+#container {
+	width: 300px;
+	margin: 20% auto;
+	text-align: center;
+}
+
+form {
+	margin: 10px;
+}
