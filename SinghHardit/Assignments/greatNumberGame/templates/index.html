@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Server</title> 
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">    
+    </head>
+    <body>
+    <div id = "wrapper">    
+        <h1>Welcome to the Great Number Game!</h1>
+        <p>I am thinking of a number between 1 and 100</p>
+        <p>Take a guess</p>
+        <div class="{{session['wrong']}}"><h3>Too {{session['wrong']}}!</h3></div> 
+        <form class ="{{session['form']}}"  action='/answer' method='POST'>
+            <input name='guess' type='text'>
+            <input type="submit" name ="submit" value="Submit">
+        </form>
+
+        <form class = "{{session['right']}}" action="/right" method="POST">
+            <div id = "right"> <h3>{{session['number']}} was the number!</h3>    
+            <input type="submit" name ="submit" value="Play Again!">
+            </div> 
+        </form>       
+        
+     </div>
+    </body>
+</html>
