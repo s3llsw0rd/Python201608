@@ -1,0 +1,33 @@
+html, body {
+    height: 100%;
+    padding: 10px;
+}
+
+.border {
+    border: solid 1px black;
+}
+.full {
+    height: 100%;
+    border: solid 1px black;
+}
+.inner {
+    margin: 5px 0px;
+    /*height: 100%;*/
+    height: 200px;
+    border: solid 1px black;
+    background: lightgreen;
+    text-align: center;
+}
+.row2 {
+    background: yellow;
+}
+button.align{
+    margin: 25px 0px;
+}
+.activity {
+    content: '';
+    height: 150px;
+    resize: none;
+    overflow-y: scroll;
+    border: solid 1px black;
+}

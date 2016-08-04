@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Simple Registration Form</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container" style="padding-top:50px">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				{% with messages = get_flashed_messages(category_filter=['success']) %}
+					{% if messages %}
+						{% for message in messages %}
+							<p class="text-success">{{message}}</p>
+						{% endfor %}
+					{% endif %}
+				{% endwith %}
+				<form action="/process" method="post">
+					<div class="form-group">
+						<label for="">Email</label>
+						{% with messages = get_flashed_messages(category_filter=['email']) %}
+							{% if messages %}
+								{% for message in messages %}
+									<p class="text-danger">{{message}}</p>
+								{% endfor %}
+							{% endif %}
+						{% endwith %}
+						<input type="email" name="email" id="email" class="form-control" placeholder="email@example.com">
+					</div>
+					<div class="form-group">
+						<label for="fname">First Name</label>
+						{% with messages = get_flashed_messages(category_filter=['fname']) %}
+							{% if messages %}
+								{% for message in messages %}
+									<p class="text-danger">{{message}}</p>
+								{% endfor %}
+							{% endif %}
+						{% endwith %}
+						<input type="text" name="fname" id="fname" class="form-control" placeholder="John/Jane">
+					</div>
+					<div class="form-group">
+						<label for="lname">Last Name</label>
+						{% with messages = get_flashed_messages(category_filter=['lname']) %}
+							{% if messages %}
+								{% for message in messages %}
+									<p class="text-danger">{{message}}</p>
+								{% endfor %}
+							{% endif %}
+						{% endwith %}
+						<input type="text" name="lname" id="lname" class="form-control" placeholder="Doe">
+					</div>
+					<div class="form-group">
+						<label for="">Birthday</label>
+						{% with messages = get_flashed_messages(category_filter=['bday']) %}
+							{% if messages %}
+								{% for message in messages %}
+									<p class="text-danger">{{message}}</p>
+								{% endfor %}
+							{% endif %}
+						{% endwith %}
+						<input type="date" name="bday" id="bday" class="form-control" placeholder="yyyy-mm-dd">
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						{% with messages = get_flashed_messages(category_filter=['pw']) %}
+							{% if messages %}
+								{% for message in messages %}
+									<p class="text-danger">{{message}}</p>
+								{% endfor %}
+							{% endif %}
+						{% endwith %}
+						<input type="password" name="password" id="password" class="form-control" placeholder="Use at least 1 uppercase letter and one number">
+					</div>
+					<div class="form-group">
+						<label for="pwconfirm">Confirm Password</label>
+						{% with messages = get_flashed_messages(category_filter=['pwconfirm']) %}
+							{% if messages %}
+								{% for message in messages %}
+									<p class="text-danger">{{message}}</p>
+								{% endfor %}
+							{% endif %}
+						{% endwith %}
+						<input type="password" name="pwconfirm" id="pwconfirm" class="form-control" placeholder="Passwords must match">
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Submit" class="btn btn-primary">
+					</div>
+				</form>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</body>
+</html>
