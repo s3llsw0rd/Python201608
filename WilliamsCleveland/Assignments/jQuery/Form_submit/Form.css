@@ -1,0 +1,21 @@
+ input {
+      border: 0px;
+      width: 200px;
+      outline:none;
+    }
+    form span {
+      border: 2px solid #000;
+      padding: 4px;
+      display: inline-block;
+      width: 250px;
+      margin: 10px 0px;
+    }
+
+    form p {
+      display: inline;
+      color: red;
+    }
+
+    form {
+      width:500px;
+    }
