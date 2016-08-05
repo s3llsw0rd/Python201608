@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Disappearing Ninja</title>
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="static/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    </head>
+    <body>
+        {% if not arg %}
+        <p>No Ninjas Here</p>
+        {% endif %}
+        {% if arg %}
+            {% if arg in ["ninja", "ninja/"] %}
+            <div class="row col-md-4 col-md-offset-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class='img-responsive' src="{{url_for('static', filename='Ninjas/donatello.jpg')}}" alt="donatello">
+                    </div>
+                    <div class="col-md-6">
+                        <img class='img-responsive' src="{{url_for('static', filename='Ninjas/leonardo.jpg')}}" alt="leonardo">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class='img-responsive' src="{{url_for('static', filename='Ninjas/michelangelo.jpg')}}" alt="michelangelo">
+                    </div>
+                    <div class="col-md-6">
+                        <img class='img-responsive' src="{{url_for('static', filename='Ninjas/raphael.jpg')}}" alt="raphael">
+                    </div>
+                </div>
+            </div>
+            {% elif arg == 'red' %}
+            <div class="row col-md-6 col-md-offset-3">
+                <img class='img-responsive' src="{{url_for('static', filename='Ninjas/raphael.jpg')}}" alt="raphael">
+            </div>
+            {% elif arg == 'blue' %}
+            <div class="row col-md-6 col-md-offset-3">
+                <img class='img-responsive' src="{{url_for('static', filename='Ninjas/leonardo.jpg')}}" alt="leonardo">
+            </div>
+            {% elif arg == 'orange' %}
+            <div class="row col-md-6 col-md-offset-3">
+                <img class='img-responsive' src="{{url_for('static', filename='Ninjas/michelangelo.jpg')}}" alt="michelangelo">
+            </div>
+            {% elif arg == 'purple' %}
+            <div class="row col-md-6 col-md-offset-3">
+                <img class='img-responsive' src="{{url_for('static', filename='Ninjas/donatello.jpg')}}" alt="donatello">
+            </div>
+            {% else %}
+            <div class="row col-md-6 col-md-offset-3">
+                <img class='img-responsive' src="{{url_for('static', filename='Ninjas/notapril.jpg')}}" alt="donatello">
+            </div>
+            {% endif %}
+        {% endif %}
+    </body>
+</html>
