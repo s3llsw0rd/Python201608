@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Number Guessing Game</title>
+	
+	<style type="text/css">
+		.red {
+			background-color: red;
+		}
+
+		.green {
+			background-color: green;
+		}
+
+		.blue {
+			background-color: blue;
+		}
+
+	</style>
+</head>
+<body>
+
+
+<div class = '{{ status["coloration"] }}'>
+	<p>Your Guess Was: {{ status['guess'] }}</p>
+	<p>That number is {{ status['outcome'] }}</p>
+</div>
+
+<form id="entry" action="/" method="post">
+	<input type="number" name="guess">
+	<input type="submit" value="Try It!">
+</form>
+
+<form>
+{% if status['correct'] %}
+<input type="submit" value="Good Guess! Click here to reset.">
+{% endif %}
+</form>
+
+</body>
+</html>

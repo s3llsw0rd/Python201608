@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Gold</title>
+</head>
+<body>
+
+<h1>Your Current Account Balance: {{ session['gold'] }}</h1>
+<div class="farm">
+	<h3>Farm</h3>
+	<p>Earns 10-20 Gold</p>
+	<form action="/process_money" method="post">
+	  <input type="hidden" name="building" value="farm" />
+	  <input type="submit" value="Grow Gold?"/>
+	</form>
+</div>
+
+<div class="cave">
+	<h3>Cave</h3>
+	<p>Earns 5-10 Gold</p>
+	<form action="/process_money" method="post">
+	  <input type="hidden" name="building" value="cave" />
+	  <input type="submit" value="Mine for Gold!"/>
+	</form>
+</div>
+
+<div class="house">
+	<h3>House</h3>
+	<p>Earns 2-5 Gold</p>
+	<form action="/process_money" method="post">
+	  <input type="hidden" name="building" value="house" />
+	  <input type="submit" value="Find Gold Between Cushions."/>
+	</form>
+</div>
+
+<div class="casino">
+	<h3>Casino</h3>
+	<p>Earns OR Loses 0-50 Gold</p>
+	<form action="/process_money" method="post">
+	  <input type="hidden" name="building" value="casino" />
+	  <input type="submit" value="Roll the Dice!"/>
+	</form>
+</div>
+
+</body>
+</html>
