@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dojo Survey With Validation</title>
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="static/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="row col-md-4 col-md-offset-4 border padded">
+            <form action="/process" method='post'>
+                <div class="row margin">
+                    <div class="col-md-6">Your Name:</div>
+                    <div class="col-md-6">
+                        <input name="name" class="form-control" type="text" placeholder="Your Name" id="name_field">
+                    </div>
+                </div>
+                <div class="row margin">
+                    <div class="col-md-6">Location:</div>
+                    <div class="col-md-6">
+                        <select name="location" class="form-control" id="sel1">
+                            <option>Dallas</option>
+                            <option>Seatle</option>
+                            <option>Los ANgeles</option>
+                            <option>Silicon Valley</option>
+                            <option>Washington DC</option>
+                            <option>Chicago</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row margin">
+                    <div class="col-md-6">Location:</div>
+                    <div class="col-md-6">
+                        <select name="lang" class="form-control" id="sel2">
+                            <option>Python</option>
+                            <option>Java Script</option>
+                            <option>PHP</option>
+                            <option>C</option>
+                            <option>Java</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row margin">
+                    <div class="col-md-12">
+                        <label for="comment">Comment:</label>
+                        <textarea name="comment" class="form-control noresize" rows="2" id="comment"></textarea>
+                    </div>
+                </div> <!-- end of row -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right">Button</button>
+                    </div>
+                </div> <!-- end of row -->
+            </form>
+        </div>
+    </body>
+</html>
