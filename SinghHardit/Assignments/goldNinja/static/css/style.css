@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Comic Sans MS",sans-serif;  
+      
+}
+#wrapper{
+    width: 90%;
+    margin: 0 auto;
+}
+span {
+    border: 1px solid black;
+    padding: 5px 30px;
+    margin: 0px 20px;
+}
+p {
+    margin: 10px 0;
+}
+
+.places * {
+    padding: 10px;
+    text-align: center;
+}
+.places {
+    border: 1px solid black;
+    display: inline-block;
+    width: 24%;
+    margin: 10px 0px 10px 10px;
+    
+}
+#out {
+    border: 1px solid black;
+}
+#activities {
+    width: 99%;
+    overflow: auto;
+    
+    margin: 0 10px;
+    height: 200px;
+    overflow-y: auto;
+}
+#activities * {
+    margin: 0 10px;
+}
+#activities p {
+    color:green;
+}
+#activities .red {
+    color:red;
+}
