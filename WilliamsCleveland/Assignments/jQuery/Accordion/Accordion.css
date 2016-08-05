@@ -1,0 +1,38 @@
+#container{
+    width: 503px;
+    height: 300px;
+    display: inline-block;
+    border: 2px solid;
+    padding: 10px;
+    vertical-align: top;
+}
+#tabs{
+	width: 547px;
+	height: 298px;
+	padding: 10px;
+	display: inline-block;
+	border: double;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
