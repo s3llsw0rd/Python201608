@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>GNG</title>
+    <style type="text/css">
+    * {
+      text-align: center;
+    }
+
+    .bc_none  { display: none; }
+    .bc_red   { background: red; }
+    .bc_green { background: green; }
+    .box {
+      width:  250px;
+      height: 250px;
+      border: 2px solid #000;
+      color: #FFF;
+      margin: 0px auto;
+    }
+
+    div .h1 { margin: auto 0px; }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to the Great Number Game!</h1>
+    <p>I am thinking of a number between 1 and 100<p>
+
+    <div id='box' class='box {{ box_class }}'>
+      <h1>{{ box_contents }}</h1>
+      {% if box_class == 'bc_green': %}
+      <form method='get' action='/'>
+        <p><input type='submit' value='Play again!' /></p>
+      </form>
+      {% endif %}
+    </div>
+
+    {% if not box_class == 'bc_green': %}
+    <form method='post' action='/process_guess'>
+      <p><input type='text' name='guess' /></p>
+      <p><input type='submit' value='Submit' /></p>
+    </form>
+    {% endif %}
+
+  </body>
+</html>
+
+
