@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Disappearing Ninja</title>
+	<link rel="stylesheet" href="Ninja.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("img.mario").click(function() {
+				$(this).hide(1000);	
+			});
+			// to display hidden images
+			$("button.show").click(function() {
+				$(".mario").show(1000);	
+			});
+		});
+ 
+	</script>
+</head>
+<body>
+	<div class="container">
+			<img class="mario" src="mario.png" alt="Mario bros!" />
+			<img class="mario" src="mario.png" alt="Mario bros!" />
+			<img class="mario" src="mario.png" alt="Mario bros!" />
+			<img class="mario" src="mario.png" alt="Mario bros!" />
+			<img class="mario" src="mario.png" alt="Mario bros!" />
+			<img class="mario" src="mario.png" alt="Mario bros!" />
+			<img class="mario" src="mario.png" alt="Mario bros!" />
+			<img class="mario" src="mario.png" alt="Mario bros!" />
+			<button class="show">Show Mario!</button>
+	</div>
+</body>
+</html>

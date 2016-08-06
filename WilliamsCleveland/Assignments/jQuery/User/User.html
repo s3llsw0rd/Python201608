@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Add user</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="User.css">
+		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+		<script>
+				$(document).ready(function(){
+					$("form").submit(function(){
+						$("#users").append("<tr>" +
+											"<td>" + $("#fname").val() + "</td>" +
+											"<td>" + $("#lname").val() + "</td>" +
+											"<td>" + $("#email").val() + "</td>"+
+											"<td>" + $("#contact").val() + "</td>"+
+										"</tr>")
+						$(".info").val("");
+						return false;
+					});
+
+				});	
+		</script>			
+	</head>
+	<body>
+		<h1>Users</h1>
+		<table id="users">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email Address</th>
+					<th>Contact #</th>
+				</tr>
+			</thead>
+		</table>
+		<h3>Add a User</h3>
+		<form>
+			<input class="info" id="fname" type="text" placeholder="First Name" />
+			<input class="info" id="lname" type="text" placeholder="Last Name" />
+			<input class="info" id="email" type="text" placeholder="Email Address" />
+			<input class="info" id="contact" type="text" placeholder="Contact Number" />
+			<input type="submit" value="Add User" />
+		</form>
+	</body>
+</html>

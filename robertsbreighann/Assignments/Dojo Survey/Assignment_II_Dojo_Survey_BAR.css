@@ -1,0 +1,25 @@
+* {
+  margin:0;
+  padding:0;
+}
+#dojosurvey {
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid black;
+  width:400px;
+  height:100%;
+  padding: 20px;
+  background-color: lightblue;
+}
+#dojosurvey form{
+  display: inline-block;
+  width: 125px;
+  
+}
+input, select {
+  margin-bottom: 10px;
+}
+textarea{
+  /*padding: 20px;*/
+  width: 300px
+}

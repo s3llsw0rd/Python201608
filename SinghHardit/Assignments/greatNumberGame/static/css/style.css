@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Comic Sans MS",sans-serif;
+}
+#wrapper {
+    width: 100%;    
+}
+p, h1 {
+    text-align: center;
+    margin: 20px;
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+}
+.low, .high {
+    background-color: tomato;
+    padding: 40px 20px;
+    margin: 0 auto;
+    text-align: center;
+    width: 200px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid black;
+}
+.right {
+    background-color: #009E0F;
+    padding: 40px 20px;
+    margin: 0 auto;
+    text-align: center;
+    width: 200px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid black;
+}
+.hide {
+    display: none;      
+}

@@ -1,0 +1,33 @@
+#square {
+	width: 200px;
+	height: 200px;
+	background-color: blue;
+	
+}
+#circle{
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+	background-color: blue;
+}
+#tri{
+	/*background-color: blue;*/
+	width: 0px;
+	height: 0px;
+	border-bottom: 140px solid blue;
+	border-left: 80px solid transparent;
+	/*border-top: 200px solid yellow;*/
+	border-right: 80px solid transparent;
+}
+#pacman {
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-top: 100px solid blue;
+  border-left: 100px solid blue;
+  border-bottom: 100px solid blue;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+}

@@ -1,0 +1,100 @@
+<html>
+	<head>
+		<title>August 5 Algorithms</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			//defining variables and objects outside the anonymous function if they might be useful to other functions later
+			var coinVal = {
+				0: 100,
+				1: 50,
+				2: 25,
+				3: 10,
+				4: 5,
+				5: 1
+			}
+
+			//anonymous function will run when the page is loaded
+			$(function(){
+				//algorithms
+				function generateCoinChange(cents){
+					var coins = [];
+					var remain = cents;
+					for (var i = 0; i < 6; i++){
+						coins.push(Math.floor(remain/coinVal[i]));
+						remain %= coinVal[i];
+					}
+					var response = '<p>' + cents + ' cents can be represented by:</p><ul><li>dollars: ' + coins[0] + '</li><li>half-dollars: ' + coins[1] + '</li><li>quarters: ' + coins[2] + '</li><li>dimes: ' + coins[3] + '</li><li>nickels: ' + coins[4] + '</li><li>pennies: ' + coins[5] + '</li></ul>';
+					return response;
+				}
+
+				function threesFives(start, end){
+					var sum = 0;
+					start = Number(start);
+					end = Number(end);
+					if ((typeof start === 'number') && (typeof end === 'number')){
+						if (start <= end){
+							for (var i = start; i <= end; i++){
+								if ((i%3 == 0 && i%5 != 0) || (i%5 == 0 && i%3 != 0)){
+									sum += i;
+								}
+							}
+						} else {
+							for (var i = end; i <= start; i++){
+								if ((i%3 == 0 && i%5 != 0) || (i%5 == 0 && i%3 != 0)){
+									sum += i;
+								}
+							}
+						}
+					}
+					return sum;
+				}
+
+
+				//Form and DOM handling
+				$('#change').submit(function(){
+					var cents = $('#cents').val();
+					$('#changeP').html(function(){
+						return generateCoinChange(cents);
+					})
+					return false;
+				})
+
+				$('#threesFives').submit(function(){
+					var start = $('#startnum').val();
+					var end = $('#endnum').val();
+					$('#sums').text(function(){
+						text = 'The sum is ' + threesFives(start, end) + '.';
+						return text;
+					})
+					return false;
+				})
+
+			});
+
+		</script>
+		<style type="text/css">
+			h2 {
+				margin-top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>August 5 Algorithms</h1>
+		<h2>Number to Coins</h2>
+		<form id="change">
+			<input type="number" id="cents" min="1">
+			<input type="submit" value="Get Change">
+		</form>
+		<p id="changeP"></p>
+		<p id="spacer"></p>
+		<h2>Sum of numbers evenly divisible by 3 or 5 but not both</h2>
+		<form id="threesFives">
+			<label for="startnum">Starting number:</label>
+			<input type="number" id="startnum">
+			<label for="endnum">Starting number:</label>
+			<input type="number" id="endnum">
+			<input type="submit" value="Get Sum">
+		</form>
+		<p id="sums"></p>
+	</body>
+</html>

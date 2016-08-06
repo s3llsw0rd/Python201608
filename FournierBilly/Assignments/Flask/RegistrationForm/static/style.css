@@ -1,0 +1,8 @@
+.box {
+    border: solid 1px black;
+    margin-top: 50px;
+    padding: 15px;
+}
+.box .row {
+    margin-bottom: 10px;
+}
