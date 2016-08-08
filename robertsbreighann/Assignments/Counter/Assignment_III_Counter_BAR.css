@@ -1,0 +1,22 @@
+*{
+}
+
+#container{
+	width: 150px;
+	margin: 20px auto;
+	padding: 50px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	background-color: darkgreen;
+}
+p{
+	font-size: 22px;
+}
+form{
+	margin: 10px;
+}
+
+input{
+	background-color: gold;
+}
