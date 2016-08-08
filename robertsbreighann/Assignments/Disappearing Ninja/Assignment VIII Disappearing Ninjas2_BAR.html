@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="utf-8">
+ 	<title>No Ninjas!</title>
+ 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Assignment VIII Disappearing Ninjas_BAR.css')}}">
+ </head>
+ <body>
+ 	<div id="container">
+ 		{% for ele in ninjapics %}
+ 		<img src="{{ url_for('static', filename='images/'+ele+'.jpg')}}" alt="{{ele}}">
+ 		{% endfor %}
+ 	</div>
+ </body>
+ </html> 
