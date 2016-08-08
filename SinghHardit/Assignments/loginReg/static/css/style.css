@@ -1,0 +1,19 @@
+* {
+	margin: 0;
+	padding: 0;
+
+}
+
+form * {
+	display: block;
+	
+}
+
+#errors {
+	color:red;
+	margin: 10px;
+}
+
+#regform {
+	margin: 10px;
+}

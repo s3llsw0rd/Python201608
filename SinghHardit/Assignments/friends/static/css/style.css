@@ -1,0 +1,13 @@
+
+#wrapper {
+	width: 100%;
+}
+
+#display {
+	width: 70%;
+	display: inline-block;
+	vertical-align: middle;
+}
+#edit, #delete{
+	display: inline-block;	
+}
