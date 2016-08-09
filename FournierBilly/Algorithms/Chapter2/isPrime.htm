@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript">
+
+  $(function(){
+    function isPrime(num){
+        if ( [0,1].includes(num) ) return false;
+        if (num == 2) return true;
+        for (var i = 2; i < num; i++){
+            if (num % i == 0) return false;
+        }
+        return true
+    }
+    for (var i = 0; i < 24 ; i++){
+        if ( isPrime(i) ) console.log('i: ' + i);
+
+    }
+  });
+  </script>
+</head>
+<body>
+
+</body>
+</html>
