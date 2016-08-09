@@ -1,0 +1,65 @@
+<html>
+<head>
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript">
+  
+  
+  $(function(){
+    //numbers divisible by 3 or 5 but not 3 and 5
+      function sumToOne(num){        
+        var new_num = num.toString();   
+        var arr = [];
+        var sum = 0;
+        while (arr.length != 1) {
+          if (sum != 0) {
+            new_num = arr;
+            arr = [];
+          }
+          for (var i =0; i < new_num.length;i++){
+            arr.push(parseInt(new_num[i]));                          
+          }
+          sum = 0;
+          for(var j =0; j<arr.length;j++){
+            sum+=arr[j];
+          }         
+          arr = sum.toString();          
+        }
+        console.log(sum);
+        }  
+          
+      sumToOne(968); 
+      function prime(num){
+        if(num<=0){
+        return 'not prime';
+        }
+        for (var i=2; i<num; i++){
+        if(num%i==0){
+        console.log('not prime');
+        return;
+        }
+        }
+        console.log( 'prime');
+        }
+      prime(4)
+      function clockangles(seconds){
+       var h=0;
+       var m=0;
+       var sec=0;
+
+        h=(seconds/3600);
+        sec=(seconds%3600);
+        m=(sec/60);
+        sec%=60;
+
+        console.log('Hour Hand'+(h*30)+'degrees')
+        console.log('Minute Hand'+(+m*6)+'degrees')
+        console.log('Second Hand'+(sec*6)+'degrees')
+      }
+  });
+  </script>
+</head>
+<body>
+
+</body>
+</html>
