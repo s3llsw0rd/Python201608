@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CodingDojo Wall</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<!-- skeleton cdn -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+</head>
+<body>
+	<header>
+		<div id="header-left">
+			<h2>CodingDojo Wall</h2>
+		</div><!--
+		--><div id="header-right">
+			<h4>Welcome, {{ user['first_name'] }} {{ user['last_name'] }}</h4>
+			<form action="/">
+				<input class="button-primary" type="submit" value="Log Out">
+			</form>
+		</div>
+	</header>
+	<div class="container">
+		<div class="row add-message">
+			<div class="twelve columns">
+				<h5>Post a message</h5>
+				<form action="/comms" method="post">
+					<input type="hidden" name="action" value="message">
+					<textarea name="user_message" placeholder="Type your message here"></textarea>
+					<input type="submit" value="Post a message" class="button button-primary">
+				</form>
+			</div>
+		</div>
+		{% for ele in messages %}
+		<div class="row">
+			<div class="twelve columns message">
+				<h6>{{ ele['username'] }} - {{ ele['created_at'] }}</h6>
+				{% if session['user_id'] == ele['user_id'] and (now - ele['time_string']).seconds/60 < 30 %}
+					<form action="/comms" method="post" class="delete-button">
+						<input type="hidden" name="action" value="delete">
+						<input type="hidden" name="message_id" value="{{ ele['message_id'] }}">
+						<input type="submit" value="X" class="button button-delete">
+					</form>
+				{% endif %}
+				<p>{{ ele['message'] }}</p>
+				<div class="comment">
+					{% for com in comments %}
+						{% if com['message_id'] == ele['message_id'] %}
+							<h6>{{ com['username'] }} - {{ com['created_at'] }}</h6>
+							{% if session['user_id'] == com['user_id'] and (now - com['time_string']).seconds/60 < 30 %}
+								<form action="/comms" method="post" class="delete-button">
+									<input type="hidden" name="action" value="delete-comment">
+									<input type="hidden" name="comment_id" value="{{ com['comment_id'] }}">
+									<input type="submit" value="X" class="button button-delete">
+								</form>
+							{% endif %}
+							<p>{{ com['comment'] }}</p>
+						{% endif %}
+					{% endfor %}
+					<h6>Post a Comment</h6>
+					<form action="/comms" method="post">
+						<input type="hidden" name="action" value="comment">
+						<input type="hidden" name="message_id" value="{{ ele['message_id'] }}">
+						<textarea name="user_comment" placeholder="Type your comment here"></textarea>
+						<input type="submit" value="Post a Comment" class="button button-default">
+					</form>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</body>
+</html>
