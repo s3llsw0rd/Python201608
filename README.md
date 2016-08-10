@@ -9,6 +9,13 @@ Probably the easiest workflow for you is to:
  4. When you log into your own github account, you should see the forked copy of this repo. Cone **that** forked copy located on your account onto your local machine
  5. Add an additional remote connection to the original repository (THIS one).
 
+## Videos
+
+[Intro to GitHub](https://youtu.be/eoB20LiQqno)
+[Flask MySQL](https://youtu.be/RQajUAX99hI)
+[Basic Routes](https://youtu.be/VHDguIEWLgI)
+[Full Friends](Currently Uploading...)
+
 ## Getting Started
 
 On your computer, you should see your cloned version of the repo. Open it up and create a new folder called 'LastnameFirstName', of course replacing it with your actual name. I'll show you all how to do this in class. Create two additional folders inside of it, 'Algorithms', and 'Assignments'.
