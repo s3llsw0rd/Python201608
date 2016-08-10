@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Gold</title>
+</head>
+	<body>
+			Current Gold: {{gold}}
+		 	<form action="/process_money" method="post">
+				 Farm
+				<input type="hidden" name="location" value="farm"/>
+				<input type="submit"/>
+			</form>
+			 <form action="/process_money" method="post">
+				 Cave
+				<input type="hidden" name="location" value="Cave"/>
+				<input type="submit"/>
+			</form>
+			 <form action="/process_money" method="post">
+			 House
+				<input type="hidden" name="location" value="House"/>
+				<input type="submit"/>
+			</form>
+			 <form action="/process_money" method="post">
+			 Casino
+				<input type="hidden" name="location" value="Casino"/>
+				<input type="submit"/>
+			</form>
+
+		<div id="activities">
+			hellow world
+		</div>
+	</body>
+</html>

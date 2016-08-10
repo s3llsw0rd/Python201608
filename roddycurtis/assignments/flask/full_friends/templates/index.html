@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Full Friends</title>
+</head>
+<body>
+<h1>Add A Friend</h1>
+<form action='/friends' method="POST">
+ <label for='first_name'>First Name: <input type='text', name='first_name'/></label>
+ <label for='last_name'>Last Name: <input type='text', name='last_name'/></label>
+ <label for='occupation'>Occupation: <input type='text', name='occupation'/></label>
+ <label for='email'>Email: <input type='text', name='email'/></label>
+  <input type='submit' name='Add Friend' value="Add Friend">
+</form>
+
+<h2>Current Friends List</h2>
+
+{% for friend in all_friends: %}
+<div>
+   ID: {{friend['id']}}
+   First Name: {{ friend['first_name'] }}
+   Last Name: {{ friend['last_name'] }}
+   Occupation: {{ friend['occupation'] }}
+   Email: {{ friend['email'] }}
+   
+   <form action="/friends/{{ friend['id']}}"> 
+        <input type="submit" name='submit' value='Edit'>
+    </form>
+   <hr>
+</div>
+{% endfor %}
+
+
+
+</body>
+</html>
