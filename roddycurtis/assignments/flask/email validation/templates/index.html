@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>Email Validation</title>
+   <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+ <div class='container'>
+       
+        <form action='/process' method='POST'>
+            {% with messages = get_flashed_messages(category_filter=["emailerrors"]) %}
+                {% if messages %}
+                <div id="false">
+                    {%- for message in messages %}
+                    <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% endwith %}
+  <div id="wrapper">
+    
+    Email Address:<input type="text" name="email" id="email">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+
+</html>

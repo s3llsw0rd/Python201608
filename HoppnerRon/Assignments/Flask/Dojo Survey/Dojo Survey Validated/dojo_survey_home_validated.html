@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dojo Survey Home</title>
+</head>
+
+<body>
+
+	<form action = '/survey' method = 'post'>
+		Your Name:<input type="text" name="name">
+		Dojo Location:<select name="loc">
+			<option value="dallas">Dallas</option>
+			<option value="sj">San Jose</option>
+			<option value="london">London</option>
+			<option value="kronos">Kronos</option>
+		</select>
+		Favorite Language:<select name="lang">
+			<option value="python">Python</option>
+			<option value="js">Javascript</option>
+			<option value="kingse">King's English</option>
+			<option value="klingon">Klingon</option>
+		</select>
+		Comments:<textarea rows="5" cols="30" name="com"></textarea>
+		<input type="submit" value="To the tubes!">
+	</form>
+
+	{% with messages = get_flashed_messages() %} <!-- declares variable 'messages' -->
+		{% if messages %} <!-- check to see if there are messages -->
+			{% for message in messages %} <!-- loop through messages -->
+				<p>{{ message }}</p> <!-- print message if any one by one in a new p tag -->
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+
+</body>
+</html>

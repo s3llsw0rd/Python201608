@@ -1,0 +1,11 @@
+#images{
+    width:1500px;
+    display: inline-block;
+}
+#info{
+    display: inline-block;
+    border: 15px solid red;
+    vertical-align: top;
+    width: 300px;
+    height: 700px;
+}

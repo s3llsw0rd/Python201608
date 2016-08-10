@@ -1,0 +1,19 @@
+<html>
+<head>
+  <title>Update Friend Information</title>
+
+</head>	
+	
+	
+<body>	
+	
+	<form id='edit' action="/friends/{{ friend['id'] }}/edit" method="POST"> 
+      <label for="first_name">First Name:<input type="text" name="first_name" id="first_name" value="{{friend['first_name'] }}"></label>
+      <label for="last_name">Last Name:<input type="text" name="last_name" id="last_name" value="{{friend['last_name'] }}"></label>
+      <label for="occupation">Occupation:<input type="text" name="occupation" id="occupation" value="{{friend['occupation'] }}"></label>
+      <label for="email">Email:<input type="text" name="email" id="email" value="{{friend['email'] }}"></label>
+        <input type="submit" name='submit' value='Save'>
+    </form>
+ 
+ </body>
+ </html>

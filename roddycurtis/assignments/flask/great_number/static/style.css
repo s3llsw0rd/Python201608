@@ -1,0 +1,17 @@
+* {
+     margin: 0 auto;
+     padding: 0;
+  }
+
+  wrapper{
+
+  }
+  
+  	.toolow, .toohigh{
+  		background-color: red;
+  		border:2px solid;
+  	}
+  .correct{
+  	background-color: green;
+  	border: 2px solid;
+  }

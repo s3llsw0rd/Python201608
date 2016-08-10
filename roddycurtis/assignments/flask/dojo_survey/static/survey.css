@@ -1,0 +1,40 @@
+*{
+  font-family: "Tahoma";
+  margin:0px auto;
+  padding: 0px;
+}
+#wrapper{
+  background-color: grey;
+  border: 2px solid;
+  width: 550px;
+  font-size: 20px;
+  padding: 20px;
+
+}
+input{
+  font-size: 20px;
+  display: inline-block;
+  float:right;
+  margin-top: 50px
+  vertical-align: top;
+  margin-right:100px;
+
+}
+div{
+  display: block;
+  margin-top: 20px;
+
+}
+textarea{
+  width: 500px;
+  height: 100px;
+  margin-top: 20px;
+}
+select{
+  display: inline-block;
+  float: right;
+  margin-right: 100px;
+  width: 240px;
+
+}
+  
