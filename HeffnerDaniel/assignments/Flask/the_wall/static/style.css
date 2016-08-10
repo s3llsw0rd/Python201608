@@ -1,0 +1,114 @@
+* {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	border: 0;
+}
+
+body {
+	min-width: 340px;
+}
+
+header {
+	width: 100%;
+	padding: 15px;
+	color: white;
+	background-color: #00284d;
+	vertical-align: top;
+	box-shadow: 2px 2px 2px gray;
+}
+	header h2, header h4, header form {
+		display: inline-block;
+		vertical-align: top;
+		margin-bottom: 0;
+	}
+	header form {
+		margin-left: 10%;
+	}
+	#header-left {
+		width: 50%;
+		display: inline-block;
+		box-sizing: border-box;
+		vertical-align: top;
+		padding-right: 15px;
+	}
+	#header-right {
+		width: 50%;
+		display: inline-block;
+		box-sizing: border-box;
+		text-align: right;
+		padding-left: 15px;
+		padding-right: 30px;
+	}
+
+form textarea {
+	width: 100%;
+	resize: none;
+	border: 1px dashed #00284d;
+	border-radius: 10px;
+	margin-bottom: .5rem;
+}
+
+.add-message {
+	border-right: 2px solid #00284d;
+	border-bottom: 2px solid #00284d;
+	border-left: 2px solid #00284d;
+	margin-bottom: 20px;
+	padding: 15px 15px 0 15px;
+	border-radius: 0 0 10px 10px;
+	box-shadow: 2px 2px 2px gray;
+}
+	.add-message form {
+		margin: 0;
+		text-align: right;
+	}
+	.add-message h5 {
+		margin: 0;
+	}
+
+.message {
+	padding: 10px 15px 10px 10px;
+	border: 1px solid #00284d;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	box-shadow: 1px 1px 2px gray;
+}
+	.message p {
+		margin: 0 0 0 15px;
+	}
+	.message h6 {
+		font-weight: bold;
+		margin: 15px 0 0 0;
+		display: inline-block;
+		width: 95%;
+	}
+	.message h6:first-of-type {
+		border-bottom: 1px dashed #00284d;
+		margin-bottom: 5px;
+	}
+	.comment {
+		margin: 0 0 0 10%;
+	}
+		.message .comment h6 {
+			border: none;
+		}
+		.comment form {
+			text-align: right;
+			margin: 0;
+			}
+
+form.delete-button {
+	margin: 0;
+	display: inline-block;
+	width: 3%;
+	vertical-align: top;
+	text-align: right;
+}
+	input.button.button-delete {
+		color: white;
+		background: red;
+		padding: 3px;
+		height: 25px;
+		line-height: 1rem;
+		margin: 0;
+	}

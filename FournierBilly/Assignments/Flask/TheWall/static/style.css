@@ -1,0 +1,7 @@
+.noresize {
+  resize: none;
+}
+
+form.col-md-10 {
+    margin-top: 25px;
+}
