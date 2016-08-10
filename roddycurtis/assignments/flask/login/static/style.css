@@ -1,0 +1,36 @@
+*{
+	font-family: "Tahoma";
+	margin:0px auto;
+	padding: 0px;
+}
+#container{
+    width: 500px;
+    height: 200px;
+    background-color: lightgray;
+    border: 2px solid;
+    margin-top: 100px;
+    border-radius: 25px;
+}
+
+
+label{
+    display: block;
+    margin-left: 150px;
+    font-size: 18px;
+}
+#container h1{
+    font-size: 25px;
+    color: blue;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    margin-left: 85px;
+}
+input[type="submit"]{
+    margin-top:40px;
+    margin-right: 60px;
+    font-size: 20px;
+    float: right;
+    border-radius: 20px;
+    width: 80px;
+    background-color: white;
+}

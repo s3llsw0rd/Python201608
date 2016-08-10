@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login and Registration</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="container">   
+         <div id="login">
+           <h1> Login To Your Account</h1>
+           <form action='/login' method='POST'>
+            <label for='email'> <input type='text', name='email', value="Email"/></label>
+            <label for='password'> <input type='text', name='password', value="Password"/></label>
+              <input type="submit" name='login' value='Login'>        
+         </div>
+        </form>
+       <form action='/register'>
+               
+           <input type="submit" name='register' value='Register'>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+*{
+  font-family: "Tahoma";
+  margin:0px auto;
+  padding: 0px;
+}
+#wrapper{
+  border: 1px solid black;
+}

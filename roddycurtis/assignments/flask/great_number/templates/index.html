@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Great Number Game</title>
+<style type="text/css">
+  *{
+    margin:0px auto;
+      }
+
+</style>
+          
+  </head>
+  <body>
+        <h1>Great Number Game!</h1>
+        <h3>I am thinking of a number between 1 and 100</h3>
+        <h3>Take a' Guess!</h3>
+       <div id=box' class=box {{pybox}}'>
+       <h2>{{boxcontents}}</h2>
+       {%if pybox == 'green':%}
+       <form method='get' action='/'>
+       <p><input type="submit" name="Reset" value=
+       "Play Again"></p>
+       </form>
+       {%endif%}
+       </div>
+
+       {%ifnot pybox=='green':%}
+       <form> method='post' action='/'/>
+        <p><input type="submit" name="submit" value=
+       "submit"></p>
+       </form>
+       {%endif%}
+
+   
+  </body>
+</html>

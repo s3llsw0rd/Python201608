@@ -1,0 +1,32 @@
+*{
+      margin: 0 auto;
+    }
+#wrapper{
+      text-align: center;
+      margin-top: 200px;
+    }
+ input{
+  width: 200px;
+ }
+
+#false {
+	
+	color:white;
+	margin: 0 auto;
+	background-color: red;
+	width: 500px;
+	/*height: 200px;*/
+	font-size: 30px;
+	text-align: center;
+	padding: 100px;
+}
+
+#upper{
+	background-color: green;
+	margin: 0 auto;
+	width: 500px;
+	padding: 50px;
+	color:white;
+	font-size: 20px
+}
+
