@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>August 8 Algorithms</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript">
+
+			function clockHand(seconds){
+				hr = Math.floor((seconds/3600)%12)*30;
+				min = Math.floor((seconds/60)%60)*6;
+				sec = Math.floor(seconds%60)*6;
+				console.log('Hour hand: '+hr+' degrees\nMinute hand: '+min+' degrees\nSecond hand: '+sec+' degrees');
+			}
+
+			function sumToOne(num){
+				var sum = 0;
+				while (num > 10){
+					sum+=(Math.round(num/10-Math.floor(num/10)))*10;
+					num = Math.round(Math.floor(num/10));
+				}
+				sum += num;
+				if (sum > 9){
+					sumToOne(sum);
+				}
+				else {
+					console.log(sum);
+				}
+			}
+
+			function isPrime(num){
+				for(var i = 2; i < num; i++){
+					if (num%i == 0){
+						console.log(num+' is not prime');
+						return false;
+					}
+				}
+				console.log(num+' is prime');
+				return true;
+			}
+			
+
+		</script>
+		<style type="text/css">
+			h2 {
+				margin-top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>August 9 Algorithms</h1>
+		<p>Please run clockHand(seconds), sumToOne(num), and isPrime(num) in the console.</p>
+	</body>
+</html>
