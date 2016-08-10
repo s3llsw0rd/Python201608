@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>Algorithims 8-9</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        function sumToone(num){
+            var sum= 0;
+            var toOne=num;
+            while(toOne>10){
+                sum += (((toOne/10)-Math.floor(toOne/10)*10));
+                toOne=Math.floor(toOne/10);
+                }
+                if(sum>9){
+                    sumToone(sum);
+                }
+                else{
+                    console.log(sum);
+            }
+        }
+    });
+
+
+    $(document).ready(function(){
+        function isPrime(num){
+            for(var i=2; i<num; i++){
+                if(num % i ==0){
+                    return false;
+                }
+            }
+        }return true;
+    });
+
+    $(document).ready(function(){
+        function clockHand(seconds){
+            var hr = (((seconds/3600) %12 ) *30);
+            var min= (((seconds/60) %60) * 6);
+            var sec =((seconds%60) *6);
+            console.log("Hour hand:" + hr + "Minute Hand: "+ min + "Second hand" + sec);
+        }
+    });
+    </script>
+</head>
+<body>
+</body>
+</html>
