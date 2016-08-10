@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Assignment VII: Dojo Survey With Validation</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Assignment VII Dojo Survey With Validation_BAR.css')}}">
+</head>
+<body>
+  <div id="dojosurvey">
+    <h2>Assignment VII: Dojo Survey With Validation</h2>
+    <div id="errors">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p class="error">{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
+  <form action="/process" method="post">
+  <label for="name">Name:</label>
+    <input type="text" name="name" id="name">
+  
+  <label for="location">Dojo Locations</label>
+    <select name="location" id="location">
+      <option value="Chicago">Chicago</option>
+      <option value="Dallas">Dallas</option>
+      <option value="Los Angeles">Los Angeles</option>
+      <option value="San Jose">San Jose</option>
+      <option value="Seattle">Seattle</option>
+      <option value="Washington">Washington</option>
+    </select>
+
+  <label for="language">Favorite Language</label>
+    <select name="language" id="language">
+      <option value="Javascript">HTML & JavaScript</option>
+      <option value="Python">Python</option>
+      <option value="Ruby">Ruby on Rails</option>
+      <option value="Mean">Mean</option>
+      <option value="Lamp">Lamp</option>
+    </select>
+
+    <label for="comment" style="width: 150px;">Comment: (optional)</label>
+    <textarea name = 'comment'></textarea>
+    <input type = 'submit' name="submit">
+  </form>
+  </div>
+</body>
+</html>

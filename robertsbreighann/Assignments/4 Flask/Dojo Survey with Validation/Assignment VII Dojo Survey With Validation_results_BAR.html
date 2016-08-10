@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>Assignment VII: Dojo Survey With Validation</title>
+    <link rel="stylesheet" type="text/css" href='static/Assignment VII Dojo Survey With Validation_BAR.css'>
+</head>
+<body>
+	<div id="dojosurvey">
+		<h2>Submitted Info</h2>
+		<p>Name:</p><!--
+		--><p>{{session['name']}}</p><!--
+		--><p>Dojo Location:</p><!--
+		--><p>{{session['location']}}</p><!--
+		--><p>Favorite Language:</p><!--
+		--><p>{{session['language']}}</p><!--
+		--><p>Comment:</p><!--
+		--><p>{{session['comment']}}</p>
+		<form action = '/'>
+	  		<input type="submit" value="Go Back">
+		</form>
+	</div>
+</body>
+</html>
