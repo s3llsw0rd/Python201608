@@ -1,0 +1,112 @@
+<html>
+	<head>
+		<title>August 10 Algorithms</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript">
+
+			$(function(){
+				//algorithms
+				var discount = {
+					1:0,
+					2:0.09,
+					3:0.19
+				}
+				function sweatshirtPricing(num){
+					var cost = num*20
+					if (num < 1){
+						return 'you know you want to buy some sweatshirts';
+					} else if (num < 4) {
+						cost -= cost*discount[num];
+					} else {
+						cost -= cost*0.35;
+					}
+					return '$'+Math.ceil(cost)+' for '+num+' sweatshirts';
+				}
+
+				function extractDigit(num, numDigit){
+					check = '' + num;
+					if (numDigit >= check.length){
+						return 0;
+					}
+					var divide = Math.pow(10, numDigit);
+					return Math.floor(num/divide)%10;
+				}
+
+				function clockHandRevisited(seconds){
+					hr = Math.floor((seconds/3600)%12)*30;
+					min = Math.floor((seconds/60)%60)*6;
+					sec = (seconds%60)*6;
+					return '<p>Hour hand: '+hr+' degrees</p><p>Minute hand: '+min+' degrees</p><p>Second hand: '+sec+' degrees</p>';
+				}
+
+
+				//Form and DOM handling
+				$('#sweatshirt').submit(function(){
+					var num = $('#num_shirts').val();
+					$('#cost').text(function(){
+						return sweatshirtPricing(num);
+					});
+					return false;
+				})
+
+				$('#extractDigit').submit(function(){
+					var number = $('#num').val();
+					var numDigit = $('#numDigit').val();
+					$('#dig').text(function(){
+						var text = extractDigit(number, numDigit);
+						return text;
+					});
+					return false;
+				})
+
+				$('#clock').submit(function(){
+					var seconds = $('#secs').val();
+					$('#angles').html(function(){
+						var text = clockHandRevisited(seconds);
+						return text;
+					})
+					return false;
+				})
+
+			});
+
+		</script>
+		<style type="text/css">
+			h2 {
+				margin-top: 50px;
+			}
+			label {
+				display: block;
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>August 10 Algorithms</h1>
+		<h2>Sweatshirt Pricing</h2>
+		<form id="sweatshirt">
+			<label>How many sweatshirts do you want?
+			<input type="number" id="num_shirts" min="0"></label>
+			<input type="submit" value="Get price">
+		</form>
+		<p>Cost of sweatshirts:</p>
+		<p id="cost"></p>
+
+		<h2>Extract Digit</h2>
+		<form id="extractDigit">
+			<label>Long Integer:<input type="number" id="num" min="0"></label>
+			<label>0 = 1's digit, 1 = 10's digit, 2 = 100's...<input type="number" id="numDigit"></label>
+			<input type="submit" value="Extract Digit">
+		</form>
+		<p>This is the digit you were looking for:</p>
+		<p id="dig"></p>
+		
+		<h2>Clock Hand Angles, Revisited</h2>
+		<p>How many seconds has it been since 12:00:00 am?</p>
+		<form id="clock">
+			<label>Number of seconds: <input type="number" id="secs" min="0"></label>
+			<input type="submit" value="Get angles of clock hands">
+		</form>
+		<div id="angles"></div>
+	</body>
+</html>
