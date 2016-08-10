@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Pokemon</title>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script>
+        $(function() {
+            for(var i = 1; i < 152; i++) {
+                $("p").append("<img src='http://pokeapi.co/media/img/" + i + ".png' />");
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Append Pokemon within P tags -->
+    <p></p>
+
+</body>
+</html>
