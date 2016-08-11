@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+   <title>Friend</title>
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}">
+ </head>
+ <body>
+    <div class="container">
+     <div>
+       <form method='POST' action='/friend'>
+         <label>First Name: <input type='text' name='first_name' /></label>
+         <label>Last Name: <input type='text' name='last_name' /></label>
+         <label>Email: <input type='text' name='email' /></label>
+         <input type='submit' value='Wanna be my friend to the end?' />
+       </form>
+     </div>
+     {% for friend in friend %}
+  	   <form method='post' action='/friend/{{ friend[ 'id' ] }}/delete'>
+  	     <a class='edit' href='/friend/{{ friend[ 'id' ] }}/edit'>Edit</a>
+  	     <input type='submit' value='Delete'>
+  	     {{ friend['first_name']}} {{ friend['last_name']}} ({{ friend['created_at']}})
+  	   </form>
+     {% endfor %}
+    </div>
+ </body>
+ </html> 
+
