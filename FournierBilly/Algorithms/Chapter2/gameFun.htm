@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript">
+
+  $(function(){
+    function rollOne(){
+        return Math.floor(Math.random()*6+1);
+    }
+    function playFives(num){
+        var roll = 0;
+        for(var i = 0; i < num; i++){
+            roll = rollOne();
+            console.log(roll);
+            if (roll == 5) console.log("That is Lucky!");
+        }
+    }
+
+    function playStats(num){
+        var roll = 0;
+        var min = 6; var max = 0; var sum = 0;
+        for (var i = 0; i < num; i++){
+            roll = rollOne();
+            if (roll > max) max = roll;
+            if (roll < min) min = roll;
+            sum += roll;
+        }
+        console.log('Max is: ' + max);
+        console.log('Min is: ' + min);
+        console.log('Sum is: ' + sum);
+        console.log('avg is: ' + sum/num);
+    }
+    console.log('playFives...');
+    playFives(6);
+    console.log('\nplaystats...');
+    playStats(20);
+
+  });
+  </script>
+</head>
+<body>
+
+</body>
+</html>
