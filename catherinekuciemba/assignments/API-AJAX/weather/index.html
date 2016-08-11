@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type= "text/css" href="styles.css">
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <title>Weather</title>
+
+        <script>
+        $(document).ready(function(){
+            $('form').submit(function() {
+                // your code here (build up your url)
+                var cityname = $('#city').val()
+                url = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityname + '&APPID=512aad626bc65281c43dfa5f5afe3505';
+                $.get(url, function(res) {
+                    // your code here
+                    var name = res.name;
+                    var temperature = 1.8 *(res.main.temp-273)+32;
+                                        // var temperature = 1.8*(res.main.temp)+32;
+                    $("#information").html("<p>It looks like it is currently <span class='temp'>" + temperature + "</span> in <span class='city'>" + name + "</span> today!</p>");
+
+                }, 'json');
+
+                // don't forget to return false so the page doesn't refresh
+                return false;
+            });
+        });
+        </script>
+
+    </head>
+    <body>
+        <div id="container">
+            <div id="top">
+                <h1>Enter a city name to see what the temperature is like:</h1>
+                <form id='form' method='POST'>
+                    <label id='cityname'>Enter a city: <input type="text" name="city" id='city'></label>
+                    <input type="submit" value="Search Weather">
+
+                </form>
+            </div>
+            <div id="information">
+            </div>
+
+        </div>
+    </body>-
+
+</html>
