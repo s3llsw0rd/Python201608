@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<title>August 10 Algorithms</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript">
+
+			$(function(){
+				//algorithms
+				function mostSignificantDigit(num){
+					while (num > 9){
+						num /= 10;
+					}
+					while (num > 0 && num < 1){
+						num *= 10;
+					}
+					return Math.floor(num);
+				}
+
+				function rollOne(){
+					return Math.floor(Math.random()*6+1);
+				}
+
+				function playFives(num){
+					var roll = 0;
+					var record = '';
+					for (var i = 0; i < num; i++) {
+						roll = rollOne();
+						record += roll;
+						if (roll == 5){
+							record += ": that's lucky!";
+						}
+						record += ' | ';
+					}
+					return record;
+				}
+
+				function rollStats(num){
+					num == Math.floor(num);
+					if (num < 1){
+						return 'you must roll at least once';
+					}
+					var min = 6;
+					var max = 0;
+					var sum = 0;
+					var roll = 0;
+					for (var i = 0; i < num; i++){
+						roll = rollOne();
+						if (roll < min) min = roll;
+						if (roll > max) max = roll;
+						sum += roll;
+					}
+					return 'Min roll: '+min+' | Max roll: '+max+' | Sum of rolls: '+sum+' | Avg roll: '+Math.round(sum/num);
+				}
+
+				//Form and DOM handling
+				$('form').submit(function(){
+					if(this.id == 'msd'){
+						var num = $('#msd_num').val();
+						$('#msd_ans').text(function(){
+							return mostSignificantDigit(num);
+						});
+					} else if(this.id == 'fives'){
+						var num = $('#fives_num').val();
+						$('#fives_ans').text(function(){
+							return playFives(num);
+						});
+					} else if (this.id == 'stats'){
+						var num = $('#stats_num').val();
+						$('#stats_ans').text(function(){
+							return rollStats(num);
+						})
+					}
+					return false;
+				})
+
+			});
+
+		</script>
+		<style type="text/css">
+			* {
+				font-family: sans-serif;
+			}
+			h2 {
+				margin-top: 50px;
+			}
+			label {
+				display: block;
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>August 11 Algorithms</h1>
+		<h2>Most Significant Digit</h2>
+		<form id="msd">
+			<label>Number: <input type="number" id="msd_num" min="0" step="any"></label>
+			<input type="submit" value="submit">
+		</form>
+		<p>And the digit is... <span id="msd_ans"></span></p>
+		
+		<h2>Lucky Fives</h2>
+		<form id="fives">
+			<label>How many times do you want to roll? <input type="number" id="fives_num" min="1" step="1"></label>
+			<input type="submit" value="submit">
+		</form>
+		<p>And the rolls are... <span id="fives_ans"></span></p>
+
+		<h2>Rolling Stats</h2>
+		<form id="stats">
+			<label>How many times do you want to roll? <input type="number" id="stats_num" min="1" step="1"></label>
+			<input type="submit" value="submit">
+		</form>
+		<p>And the stats are... <span id="stats_ans"></span></p>
+	</body>
+</html>
