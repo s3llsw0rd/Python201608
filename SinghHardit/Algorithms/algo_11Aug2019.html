@@ -1,0 +1,75 @@
+<html>
+<head>
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript">
+  
+  
+  $(function(){
+    //numbers divisible by 3 or 5 but not 3 and 5
+      function rollOne(s=1,e=7){ 
+        return Math.floor(Math.random()*(e-s)+s);
+      }  
+      function playFive(num){
+        for (var i=0; i<num;i++) {          
+          var roll = rollOne();
+          if (roll==5){
+            console.log("thats good luck");
+            return roll;
+          }
+        }
+      }
+      function playStats(num){
+        var max = 0;
+        var min = 7;
+        var sum = 0;
+        for (var i = 0; i<num; i++){
+          var roll = rollOne();
+          if (max<roll){
+            max = roll;
+          }
+          if (min>roll){
+            min=roll;
+          }
+          sum+=roll;          
+        }
+        console.log(min,max,sum,sum/num);
+      }      
+      function prime(num){
+      }
+      
+      function clockangles(seconds){       
+      }
+
+      function twentyOne(){
+        var max = 0;
+        var min = 7;
+        var sum = 0;
+        var count = 0;
+        var proll = 0;
+        var x = false;
+        while (!x){
+          var roll = rollOne(1,21);
+          if (max<roll){
+            max = roll;
+          }
+          if (min>roll){
+            min=roll;
+          }
+          sum+=roll;          
+          count++;
+          if (proll ==roll ){
+            x = true;
+            console.log("min",min,"max", max,"sum",sum,"count", count,"avg",sum/count);            
+          }
+          proll = roll;        
+        }
+      }
+      twentyOne();
+  });    
+  </script>
+</head>
+<body>
+
+</body>
+</html>
