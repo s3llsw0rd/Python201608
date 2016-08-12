@@ -1,0 +1,193 @@
+<html>
+	<head>
+		<title>August 12 Algorithms</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			//setup
+			var claire = {
+				'x': 0,
+				'y': 0
+			}
+
+			//algorithms
+			function reset(){
+				claire.x = 0;
+				claire.y = 0;
+			}
+
+			function move(a,b){
+				claire.x += a;
+				claire.y += b;
+			}
+
+			function xLocation(){
+				return Math.abs(claire.x);
+			}
+
+			function yLocation(){
+				return Math.abs(claire.y);
+			}
+
+			function distFromHome(){
+				return Math.sqrt(Math.pow(claire.x, 2) + Math.pow(claire.y, 2));
+			}
+
+
+			function weekdayName(num){
+				switch (num){
+					case 1:
+						console.log('Sunday');
+						break;
+					case 2:
+						console.log('Monday');
+						break;
+					case 3:
+						console.log('Tuesday');
+						break;
+					case 4:
+						console.log('Wednesday');
+						break;
+					case 5:
+						console.log('Thursday');
+						break;
+					case 6:
+						console.log('Friday');
+						break;
+					case 7:
+						console.log('Saturday');
+						break;
+					default:
+						console.log('I told you to only use numbers 1 through 7!');
+				}
+			}
+
+			function weekdayName2(num){
+				switch (num%7){
+					case 1:
+						return ('Sunday');
+					case 2:
+						return ('Monday');
+					case 3:
+						return ('Tuesday');
+					case 4:
+						return ('Wednesday');
+					case 5:
+						return ('Thursday');
+					case 6:
+						return ('Friday');
+					case 0:
+						return ('Saturday');
+				}
+			}
+
+			function someDays(){
+				var day = 0;
+				for (var i = 0; i < 17; i++){
+					day = Math.floor(Math.random()*365+1);
+					console.log(weekdayName2(day));
+					if (day%7<2){
+						console.log('Enjoy your day off!');
+					} else {
+						console.log('Work hard!');
+					}
+				}
+			}
+
+			function monthName(num){
+				if (num-1<0 || num-1>12){
+					return 'invalid number (valid integers: 1-12)';
+				}
+				var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+				return months[num-1];
+			}
+
+			function monthtoDays(num){
+				switch (num){
+					case 1:
+					case 3:
+					case 5:
+					case 7:
+					case 8:
+					case 10:
+					case 12: return 31;
+					case 4:
+					case 6:
+					case 9:
+					case 11: return 30;
+					case 2: return 28;
+					default: return 'invalid number (valid ints: 1-12)';
+				}
+			}
+
+			function daytoMonth(num){
+				var x = num;
+				month = 0;
+				while (x > 0){
+					month++;
+					x -= monthtoDays(month);
+				}
+				console.log(month);
+				return monthName(month);
+			}
+
+			function fullDate(num){
+				if (num > 365){
+					return 'this only works up to 365'
+				}
+				var date = '';
+				date += weekdayName2(num) + ', ';
+				date += daytoMonth(num) + ' ';
+				var x = num;
+				month = 0;
+				while (x > 0){
+					month++;
+					x -= monthtoDays(month);
+				}
+				console.log(month);
+				date += (monthtoDays(month)+x) + ', 2017';
+				return date;
+			}
+
+		</script>
+		<style type="text/css">
+			* {
+				font-family: sans-serif;
+			}
+			h2 {
+				margin-top: 50px;
+			}
+			label {
+				display: block;
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>August 12 Algorithms</h1>
+		<h2>Claire is Where?</h2>
+		<p>In the console:
+			<ul>
+				<li>console.log(claire)</li>
+				<li>reset()</li>
+				<li>move(x,y)</li>
+				<li>xLocation()</li>
+				<li>yLocation</li>
+				<li>distFromHome</li>
+			</ul>
+		</p>
+		<h2>Date, on a Deserted Island</h2>
+		<p>In the console:
+			<ul>
+				<li>weekdayName(integer_from_1_through_7)</li>
+				<li>weekdayName2(any_int_1_or_above)</li>
+				<li>someDays()</li>
+				<li>monthName(int_1_through_12)</li>
+				<li>monthtoDays(int_1_through_12)</li>
+				<li>daytoMonth(any_int_1_or_above)</li>
+				<li>fullDate(any_int_1_through_365)</li>
+			</ul>
+		</p>
+
+		
+	</body>
+</html>
