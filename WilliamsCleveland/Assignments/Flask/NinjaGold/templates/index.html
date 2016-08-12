@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Ninja Gold</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}">
+
+    <!-- Custom CSS -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <p>Your Gold:<span>{{session['gold']}}</span></p>
+
+        <hr>
+        <div class="row text-center">
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h1>Farm</h1>
+                        <p>(earns 10-20 golds)</p>
+                            <form action="/process_money" method="post">
+                                <input type="hidden" name="place" value="farm">
+                                <input type="submit" name="gold" value = "Find Gold!" >
+                            </form>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h1>Cave</h1>
+                        <p>(earns 5-10 golds)</p>
+                        <form action="/process_money" method="post">
+                            <input type="hidden" name="place" value="cave">
+                            <input type="submit" name="gold" value = "Find Gold!" >
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h1>House</h1>
+                        <p>(earns 2-5 golds)</p>
+                        <form action="/process_money" method="post">
+                            <input type="hidden" name="place" value= "house">
+                            <input type="submit" name="gold" value = "Find Gold!" >
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+        
+                    <div class="caption">
+                        <h1>Casino</h1>
+                        <p>(earns/take 0-50 golds)</p>
+                        <form action="/process_money" method="post">
+                            <input type="hidden" name="place" value="casino">
+                            <input type="submit" name="gold" value = "Find Gold!" >
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+        <h4>Activities:</h4>
+        <header class="jumbotron hero-spacer">
+                <div id = "activities">
+                    {{session['activities']}}   
+                </div>
+        </header>
+
+        <hr>
+
+        
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
