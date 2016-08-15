@@ -36,6 +36,6 @@ class Underscore(object):
 _ = Underscore() 
 evens = _.filter([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
 squares = _.map([1, 2, 3, 4, 5, 6], lambda x: x ** 2)
-red = _.reduce([1, 2, 3, 4, 5, 6], lambda x,y: x+y)
+red = _.map({1: 2, 3: 4, 5: 6}, lambda x: x*2)
 print red
 # should return [2, 4, 6] after you finish implementing the code above
