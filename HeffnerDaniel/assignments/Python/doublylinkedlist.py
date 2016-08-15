@@ -20,20 +20,21 @@ class DLList(object):
 			self.tail = new_node
 			return self
 	def delete_node(self, data):
-		x = self.head
-		while x != self and x.data != data:
-			x = x.next
-		if x == self:
+		x = self.get_node(data)
+		if not x:
 			print 'error: value not found in list'
 		else:
 			x.next.prev = x.prev
 			x.prev.next = x.next
 		return self
 	def insert_node(self, data, data_before):
-		x = self.head
-		while x != self and x.data != data_before:
-			x = x.next
-		if x == self:
+		if data_before == self:
+			new_node = Node(data, self, self.head)
+			self.head.prev = new_node
+			self.head = new_node
+			return self
+		x = self.get_node(data_before)
+		if not x:
 			print 'error: value to insert data after not found in list'
 		else:
 			new_node = Node(data, x, x.next)
@@ -45,6 +46,14 @@ class DLList(object):
 		while x != self:
 			print x.data
 			x = x.next
+	def get_node(self, data):
+		x = self.head
+		while x != self and x.data != data:
+			x = x.next
+		if x == self:
+			return False
+		else:
+			return x
 
 # Tests:
 # LiLi = DLList()
@@ -54,5 +63,5 @@ class DLList(object):
 # LiLi.delete_node('third')
 # LiLi.print_values()
 # print '----------'
-# LiLi.insert_node('third', 'fourth')
+# LiLi.insert_node('third', LiLi).insert_node('fifth', 'second')
 # LiLi.print_values()
