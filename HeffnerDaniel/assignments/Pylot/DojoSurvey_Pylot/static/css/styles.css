@@ -1,0 +1,66 @@
+* {
+	font-family: monaco, sans-serif;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	outline: 0;
+	box-sizing: border-box;
+}
+
+#confirm {
+	background-color: lightgreen;
+}
+	#confirm h3 {
+		font-weight: normal;
+	}
+
+#container, #confirm {
+	width: 500px;
+	border: 2px solid black;
+	margin: 50px auto;
+	padding: 20px;
+}
+	#container h3{
+		text-decoration: underline;
+	}
+	
+#labels, #inputs {
+	display: inline-block;
+	width: 50%;
+	vertical-align: top;
+}
+
+label, p {
+	display: block;
+	border: 1px solid transparent;
+	padding: 5px;
+	margin: 5px 0px;
+	text-align: left;
+}
+
+form {
+	text-align: right;
+}
+
+input[type=text], textarea, select {
+	border: 1px solid black;
+	width: 100%;
+	padding: 5px;
+	margin: 5px 0px;
+}
+
+textarea {
+	height: 100px;
+	resize: none;
+}
+
+input[type=submit] {
+	border: 1px solid black;
+	padding: 10px;
+	font-weight: bold;
+	margin-top: 15px;
+}
+
+input[type=submit]:hover {
+	cursor: pointer;
+}
