@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+      .border { border: solid 1px black;}
+      .container {margin-top: 15px;}
+      .timebox {height: 150px; margin-top: 15px;}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-4 col-md-offset-4 text-center border">
+          <p>The Current time and date:</p>
+        </div>
+
+        <div class="col-md-12 border timebox">
+          <div class="col-md-4 col-md-offset-4 text-center">
+            <h3>{{ date }}</h3>
+          </div>
+          <div class="col-md-4 col-md-offset-4 text-center">
+            <h3>{{ time }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
