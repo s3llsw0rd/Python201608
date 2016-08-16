@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Manage Courses</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-offset-2 col-sm-8">
+				<h2>Are you sure you want to delete the following course?</h2>
+				<div class="row">
+					<div class="col-xs-2">
+						<p>Name:</p>
+						<p>Description:</p>
+					</div>
+					<div class="col-xs-10">
+						<p>{{ course['name'] }}</p>
+						<p>{{ course['description'] }}</p>
+					</div>
+				</div>
+				<div class="row space">
+					<div class="col-xs-offset-2 col-xs-2">
+						<a href="/" class="btn btn-info">No</a>
+					</div>
+					<div class="col-xs-8">
+						<a href="/courses/destroy/{{ course['id'] }}/delete" class="btn btn-danger">Yes, I want to delete this course</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

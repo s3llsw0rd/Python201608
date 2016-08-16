@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Manage Courses</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8">
+				<h2>Add a new course</h2>
+				<form action="/courses/add" method="POST" class="form-horizontal">
+					<div class="form-group">
+						<label for="name" class="col-sm-3 control-label">Course Name</label>
+						<div class="col-sm-9">
+							<input type="text" name="name" id="name" class="form-control" placeholder="{% with messages = get_flashed_messages() %}{% if messages %}{% for message in messages %}{{message}}{% endfor %}{% endif %}{% endwith %}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="description" class="col-sm-3 control-label">Course Description</label>
+						<div class="col-sm-9">
+							<textarea type="text" name="description" id="description" class="form-control"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-10 col-sm-2">
+							<input type="submit" class="btn btn-success hundred" value="Add">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-sm-4"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Courses</h2>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Course Name</th>
+							<th>Description</th>
+							<th>Date Added</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for dict in courses %}
+						<tr>
+							<td>{{ dict.name }}</td>
+							<td>{{ dict.description }}</td>
+							<td>{{ dict.created_at }}</td>
+							<td><a href="/courses/destroy/{{ dict.id }}">remove</a></td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
