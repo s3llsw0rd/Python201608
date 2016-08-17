@@ -1,0 +1,46 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <title>Ninja Gold Game-Pylot</title>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <p>Your Gold: <span>{{session['gold']}}</span></p>
+        </div>
+        <div class="box">
+            <h3>Farm</h3>
+            <p>(Earns 10-20 golds)</p>
+            <form action='/process_money' method='POST'><input type="hidden" name="building" value="farm" /> <input type="submit"value="Find Gold!" /></form>
+        </div>
+
+        <div class="box">
+            <h3>Cave</h3>
+            <p>(Earns 5-10 golds)</p>
+            <form action='/process_money' method='POST'><input type="hidden" name="building" value="cave" /><input type="submit" value="Find Gold!"></form>
+
+        </div>
+
+        <div class="box">
+            <h3>House</h3>
+            <p>(Earns 2-5 golds)</p>
+            <form action='/process_money' method='POST'><input type="hidden" name="building" value="house" /><input type="submit" value="Find Gold!"></form>
+
+        </div>
+
+        <div class="box">
+            <h3>Casino</h3>
+            <p>(Earns/Takes 0-50 golds)</p>
+            <form action='/process_money' method='POST'><input type="hidden" name="building" value="casino" /><input type="submit" value="Find Gold!"></form>
+
+        </div>
+        <p>Activities: </p>
+        <div id="footer">
+            {% for activity in message %}
+                <p style='color: {{activity ['color']}}'>{{activity['msg']}}</p>
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+</html>

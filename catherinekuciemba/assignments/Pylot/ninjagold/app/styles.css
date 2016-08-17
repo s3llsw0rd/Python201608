@@ -1,0 +1,55 @@
+* {
+  font-family: monaco;
+  padding:0px;
+  margin:0px;
+}
+#container{
+    margin:0px auto;
+    width:900px;
+    height:700px;
+    padding:0px;
+}
+#header{
+    text-align: left;
+    padding:10px;
+}
+span{
+    border:3px solid black;
+    margin:5px;
+    padding:5px;
+
+}
+.box{
+    border:3px solid black;
+    display:inline-block;
+    height:160px;
+    width:160px;
+    padding:5px;
+    margin:10px;
+    text-align: center;
+    background-color: yellow;
+}
+h3{
+    margin:15px;
+}
+input{
+    margin-top: 20px;
+    background-color: blue;
+    padding:7px;
+    color:white;
+}
+
+.green{
+    color:green;
+}
+.red{
+    color:red;
+}
+#footer{
+    height:200px;
+    width: 780px;
+    border:3px solid black;
+    margin:10px;
+    padding:10px;
+    overflow: scroll;
+}
