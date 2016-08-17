@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div id="add">
+      {% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+						<p>{{message}}</p>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+      <h1>Add New Course</h1>
+      <form action="/course/add" method='POST'>
+        <label>Name: <input type="text" name="name"></label>
+        <label>Description: <textarea name="description"></textarea></label>
+        <label> <input type="submit" name="submit" value="Add"></label>
+      </form>        
+    </div>
+    <div id="display">
+      <h1>Courses</h1>
+      <table>
+          <tr>
+            <th>Course Name</th>
+            <th>Description</th> 
+            <th>Date Added</th>
+            <th>Action</th>
+          </tr>
+          {%for course in course_data%}
+          <tr>
+            <td>{{course['name']}}</td>
+            <td>{{course['description']}}</td> 
+            <td>{{course['created_at']}}</td>
+            <td><a href="/course/destroy/{{course['id']}}">remove</a></td>
+          </tr>
+          {%endfor%}
+      </table>
+
+    </div>
+  </body>
+</html>

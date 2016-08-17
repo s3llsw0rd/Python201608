@@ -1,0 +1,14 @@
+* {
+  font-family: monaco;
+  text-align: center;
+}
+
+#rand {
+  width: 300px;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 20px;
+}
+form {
+  margin: 10px 0;
+}

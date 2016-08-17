@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div id="survey">
+      <form action="/survey/process" method="POST">
+            <label>Your Name: <input type="text" name = "name" placeholder="Your Name"></label>
+            <label>Dojo Location: <select name="location" id="loc">
+                <option value="dallas">Dallas</option>
+                <option value="seattle">Seattle</option>
+                <option value="sanJose">San Jose</option>
+            </select></label>
+            <label>Language:<select name="language" id="lang">
+                <option value="python">Python</option>
+                <option value="cSharp">C#</option>
+                <option value="javascript">JavaScript</option>
+            </select></label>
+            <label>Comment (optional):
+           <textarea  name = "comment"></textarea></label>
+           <label> <input type="submit" value = 'Submit' name = 'submit' ></label>
+        </form>
+    </div>
+  </body>
+</html>
