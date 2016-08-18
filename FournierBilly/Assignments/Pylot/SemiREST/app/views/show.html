@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Product {{product_num}} Info | Semi Restful Route Demo</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+    <style>
+      .border-right {
+        border-right: solid 1px black
+      }
+      form {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-12">
+          <h1>Product {{ products['id'] }}</h1>
+        </div>
+
+        <div class="col-sm-3"> Name:</div>
+        <div class="col-sm-9"> {{ products['name'] }} </div>
+
+        <div class="col-sm-3"> Description:</div>
+        <div class="col-sm-9"> {{ products['description'] }} </div>
+
+        <div class="col-sm-3"> Price:</div>
+        <div class="col-sm-9"> ${{ products['price'] }} </div>
+
+        <form action="/products/edit/{{ products['id'] }}">
+          <button class="btn btn-link border-right">Edit</button>
+        </form>
+        <form action="/">
+          <button class="btn btn-link">Back</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

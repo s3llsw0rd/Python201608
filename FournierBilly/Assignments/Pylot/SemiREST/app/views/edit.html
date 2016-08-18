@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Edit product {{ product['id'] }} | Semi Restful Route Demo</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+    <style>
+      .border-right {
+        border-right: solid 1px black
+      }
+      table.table.table-striped {
+          border: 1px solid lightgrey;
+      }
+      table th, table td{
+        border-left: 1px solid lightgrey;
+      }
+      table tr {
+        border: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-12">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <ul class='flashes' style='list-style-type: none; color: red;'>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+        </div>
+        <div class="col-sm-12">
+          <h1>Edit Product {{ product['id'] }}</h1>
+        </div>
+
+        <form action='/products/{{ product['id'] }}/create' method='post' role="form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" name="name" id="name" value='{{product['name']}}'>
+          </div>
+          <div class="form-group">
+            <label for="desc">Description:</label>
+            <input type="text" class="form-control" name="desc" id="desc" value='{{product['description']}}'>
+          </div>
+          <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="text" class="form-control" name="price" id="price" value='{{product['price']}}'>
+          </div>
+          <button type="submit" method='post' class="btn btn-default">Update</button>
+        </form>
+
+        <form action="/">
+          <button class="btn btn-link">Go Back</button>
+        </form>
+
+      </div>
+    </div>
+  </body>
+</html>
