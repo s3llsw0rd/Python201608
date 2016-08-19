@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    Press the button to generate a random number
+    {%if attempt:%}
+      <p>Random Word (attempt#{{attempt}})</p>
+    {%endif%}
+    {%if word:%}
+    <div id="rand">      
+        {{word}}         
+    </div>
+    {%endif%}  
+    <form action="/gen" method= "GET">
+        <input type="submit" name="submit" value="Generate">
+    </form>
+    
+  </body>
+</html>
