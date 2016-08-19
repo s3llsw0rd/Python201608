@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <style>
+      .border {
+        border: solid 1px black;
+        margin-top: 10px;
+        padding-top: 10px;
+      }
+      .borderg {
+        border: solid 1px black;
+        background: lightgreen;
+        margin-top: 10px;
+        padding-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12 text-center borderg">
+          Thanks for submitting this form! You have submitted this form {{count}} times now.
+        </div>
+        <div class="col-md-12 border">
+          <h2><u>Submitted Info</u></h2>
+          <div class="row">
+            <div class="col-sm-6">Name:</div>
+            <div class="col-sm-6">{{name}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">Dojo Location:</div>
+            <div class="col-sm-6">{{location}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">Favorite Language:</div>
+            <div class="col-sm-6">{{language}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">Comment:</div>
+            <div class="col-sm-6">{{comment}}</div>
+          </div>
+          <form action="/" role='form' class='form'>
+            <div class="form-group">
+            <button type='submit' class='btn btn-primary pull-right'>Go Back</button>
+            </div>
+          </form>
+          <div style='clear: both;'></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <style>
+      .border {
+        border: solid 1px black;
+        margin-top: 10px;
+        padding-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-6 col-md-offset-3 border panel">
+        <form action="/surveys/process" method='POST' role='form' class='form-horizontal'>
+              <div class="form-group">
+                <label for="name" class="control-label col-md-3">Your Name:</label>
+                <div class="col-md-8">
+                  <input name="name" class="form-control" type="text" placeholder="Your Name" id="name_field">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="location" class="control-label col-md-3">Location:</label>
+                <div class="col-md-8">
+                  <select name="location" class="form-control" id="location">
+                      <option>Dallas</option>
+                      <option>Seatle</option>
+                      <option>Los ANgeles</option>
+                      <option>Silicon Valley</option>
+                      <option>Washington DC</option>
+                      <option>Chicago</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="language" class="control-label col-md-3">Favorite Language:</label>
+                <div class="col-md-8">
+                  <select name="language" class="form-control" id="language">
+                      <option>Python</option>
+                      <option>Java Script</option>
+                      <option>PHP</option>
+                      <option>C</option>
+                      <option>Java</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-11">
+                <label for="comment" >Comment:</label>
+                </div>
+                <div class="col-md-11">
+                  <textarea name="comment" class="form-control noresize" rows="1" id="comment"></textarea>
+                  </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-11">
+                  <button type='submit' class='btn btn-primary pull-right'>Submit</button>
+                </div>
+              </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

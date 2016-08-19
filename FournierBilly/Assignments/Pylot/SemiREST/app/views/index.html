@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>All Products | Semi Restful Route Demo</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+    <style>
+      .border-right {
+        border-right: solid 1px black
+      }
+      table.table.table-striped {
+          border: 1px solid lightgrey;
+      }
+      table th, table td{
+        border-left: 1px solid lightgrey;
+      }
+      table tr {
+        border: none !important;
+      }
+      table form {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-12">
+          <h1>Products</h1>
+        </div>
+        <div class="col-sm-12">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              {% for ele in products %}
+              <tr>
+
+                  <td>{{ele['name']}}</td>
+                  <td>{{ele['description']}}</td>
+                  <td>{{ele['price']}}</td>
+                  <td class='text-center'>
+                    <form action="/products/show/{{ ele['id'] }}">
+                      <button name='btn' value='show' class='btn btn-link border-right'>Show</button>
+                    </form>
+                    <form action="/products/edit/{{ ele['id'] }}">
+                      <button name='btn' value='edit' class='btn btn-link border-right'>Edit</button>
+                    </form>
+                    <form action="/products/{{ ele['id'] }}/delete" method='post'>
+                      <button class='btn btn-default'>Remove</button>
+                    </form>
+                  </td>
+
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-12">
+          <form action="/products/new">
+            <button class='btn btn-link'>Add a new product</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Create a new product | Semi Restful Route Demo</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+    <style>
+      .border-right {
+        border-right: solid 1px black
+      }
+      table.table.table-striped {
+          border: 1px solid lightgrey;
+      }
+      table th, table td{
+        border-left: 1px solid lightgrey;
+      }
+      table tr {
+        border: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-12">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <ul class='flashes' style='list-style-type: none; color: red;'>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+        </div>
+        <div class="col-sm-12">
+          <h1>Product {{ product_num }}</h1>
+        </div>
+
+        <form action='/products/create' role="form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" name="name" id="name">
+          </div>
+          <div class="form-group">
+            <label for="desc">Description:</label>
+            <input type="text" class="form-control" name="desc" id="desc">
+          </div>
+          <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="text" class="form-control" name="price" id="price">
+          </div>
+          <button type="submit" class="btn btn-default">Create</button>
+        </form>
+
+        <form action="">
+          <button class="btn btn-link">Go Back</button>
+        </form>
+
+      </div>
+    </div>
+  </body>
+</html>
