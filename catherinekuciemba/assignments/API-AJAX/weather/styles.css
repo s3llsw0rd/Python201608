@@ -1,0 +1,30 @@
+*{
+    padding:0px;
+    margin:0px;
+    font-family: arial;
+}
+#container{
+    width:500px;
+    margin:0px auto;
+
+}
+#top{
+    margin:10px;
+    padding:10px;
+    text-align: center;
+}
+form{
+    margin:30px;
+}
+#information{
+    margin-top: 30px;
+    padding:10px;
+}
+.city {
+    font-weight: bold;
+
+}
+.temp {
+    font-weight: bold;
+
+}
