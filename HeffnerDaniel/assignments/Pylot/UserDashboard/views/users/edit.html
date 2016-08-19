@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Edit Profile</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Test App</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="/dashboard">Dashboard</a></li>
+					<li class="active"><a href="/users/edit">Profile</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/logoff">Log off</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Edit Profile</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<form action="/users/edit/update" method="POST">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4>Edit Information</h4>
+						</div>
+						<div class="panel-body">
+							<input type="hidden" name="id" value="{{ user['id'] }}">
+							<div class="form-group">
+								<label for="email">Email Address</label>
+								<input type="email" class="form-control" id="email" name="email" value="{{ user['email'] }}">
+							</div>
+							<div class="form-group">
+								<label for="fname">First Name:</label>
+								<input type="text" id="fname" class="form-control" name="fname" value="{{ user['first_name'] }}">
+							</div>
+							<div class="form-group">
+								<label for="lname">Last Name:</label>
+								<input type="text" id="lname" class="form-control" name="lname" value="{{ user['last_name'] }}">
+							</div>
+							<p class="text-right"><input name="action" type="submit" class="btn btn-success" value="Update Information"></p>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-6">
+				<form action="/users/edit/update" method="POST">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4>Change Password</h4>
+						</div>
+						<div class="panel-body">
+							<input type="hidden" name="id" value="{{ user['id'] }}">
+							{% with messages = get_flashed_messages() %}
+								{% if messages %}
+									{% for message in messages %}
+										<p class="text-danger">{{ message }}</p>
+									{% endfor %}
+								{% endif %}
+							{% endwith %}
+							<div class="form-group">
+								<label for="password">Password</label>
+								<input type="password" id="password" class="form-control" name="password">
+							</div>
+							<div class="form-group">
+								<label for="pwconfirm">Password Confirmation</label>
+								<input type="password" id="pwconfirm" class="form-control" name="pwconfirm">
+							</div>
+							<p class="text-right"><input name="action" type="submit" class="btn btn-success" value="Update Password"></p>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<form action="/users/edit/update" method="POST">
+					<div class="panel panel-default">
+						<input type="hidden" name="id" value="{{ user['id'] }}">
+						<div class="panel-heading">
+							<h4>Edit Description</h4>
+						</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<textarea name="description" class="form-control" rows="5">{{ user['description'] }}</textarea>
+							</div>
+							<p class="text-right"><input name="action" type="submit" class="btn btn-success" value="Update Description"></p>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

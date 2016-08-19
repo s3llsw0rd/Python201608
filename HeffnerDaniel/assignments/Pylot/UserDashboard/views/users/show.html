@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>User Information</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Test App</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="/dashboard">Dashboard</a></li>
+					<li><a href="/users/edit">Profile</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/logoff">Log off</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>{{ user['first_name'] }} {{ user['last_name'] }}</h1>	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-3">
+				<p>Registered at:</p>
+				<p>User ID:</p>
+				<p>Email Address:</p>
+				<p>Description:</p>
+			</div>
+			<div class="col-xs-9">
+				<p>{{ user['created_at'] }}</p>
+				<p>#{{ user['id'] }}</p>
+				<p>{{ user['email'] }}</p>
+				<p>{{ user['description'] }}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Leave a message for {{ user['first_name'] }}</h2>
+				<form action="/messages/create/{{ user['id'] }}" method="POST">
+					<div class="form-group">
+						<textarea name="message" class="form-control" rows="5"></textarea>
+					</div>
+					<p class="text-right"><input type="submit" class="btn btn-success" value="Post"></p>
+				</form>	
+			</div>
+		</div>
+
+		<div class="spacer" style="height:50px"></div>
+
+		{% for message in content %}
+		<div class="message_comments">
+			<div class="row">
+				<div class="col-xs-6">
+					<p>{{ message['poster'] }} wrote</p>
+				</div>
+				<div class="col-xs-6">
+					<p class="text-right"><em>{{ message['m_created_at'] }}</em></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							{{ message['message'] }}
+						</div>
+					</div>
+					{% for comment in message['comments'] %}
+					<div class="row">
+						<div class="col-xs-offset-2 col-xs-5">
+							<p>{{ comment['commenter'] }} wrote</p>
+						</div>
+						<div class="col-xs-5">
+							<p class="text-right"><em>{{ comment['c_created_at'] }}</em></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-offset-2 col-xs-10">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									{{ comment['comment'] }}
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					<div class="row">
+						<div class="col-xs-offset-2 col-xs-10">
+							<form action="/messages/comment/{{ user['id'] }}" method="POST">
+								<input type="hidden" name="msg_id" value="{{ message['id'] }}">
+								<div class="form-group">
+									<textarea name="comment" class="form-control" rows="2" placeholder="Leave a comment"></textarea>
+								</div>
+								<p class="text-right"><input type="submit" class="btn btn-success" value="Post"></p>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</body>
+</html>
