@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title>August 15 Algorithms</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			//setup
+
+			var arr1 = [1,2,3,4,5,6,7,8,9];
+			var arr2 = [3,6,9,12,15,18];
+			var arr3 = [[1,2,3],[3,4,5],[6,7,8],9];
+			var arr4 = ['a','b','c',1,2,3]
+
+			//algorithms
+			function pushFront(arr, x){
+				for (var i = arr.length; i > 0; i--){
+					arr[i] = arr[i-1];
+				}
+				arr[0] = x;
+				return arr;
+			}
+
+			function insertAt(arr, idx, x){
+				for (var i = arr.length; i > idx; i--){
+					arr[i] = arr[i-1];
+				}
+				arr[idx] = x;
+				return arr;
+			}
+
+			function popFront(arr){
+				var val = arr[0];
+				for (var i = 0; i < arr.length - 1; i++){
+					arr[i] = arr[i+1];
+				}
+				arr.length = arr.length - 1;
+				console.log(arr);
+				return val;
+			}
+
+			function removeAt(arr, idx){
+				if (idx > arr.length - 1){
+					return 'error: index not in array'
+				}
+				var val = arr[idx];
+				for (var i = idx; i < arr.length - 1; i++){
+					arr[i] = arr[i+1];
+				}
+				arr.length = arr.length - 1;
+				console.log(arr);
+				return val;
+			}
+
+
+		</script>
+		<style type="text/css">
+			* {
+				font-family: sans-serif;
+			}
+			h2 {
+				margin-top: 50px;
+			}
+			label {
+				display: block;
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>August 15 Algorithms</h1>
+		<h2>Modifying Arrays</h2>
+		<p>In the console:
+			<ul>
+				<li>pushFront(array, value)</li>
+				<li>insertAt(array, index, value)</li>
+				<li>popFront(arr)</li>
+				<li>removeAt(array, index)</li>
+			</ul>
+		</p>
+		<p>A few arrays to use for testing:
+			<ul>
+				<li>arr1 = [1,2,3,4,5,6,7,8,9]</li>
+				<li>arr2 = [3,6,9,12,15,18]</li>
+				<li>arr3 = [[1,2,3],[3,4,5],[6,7,8],9]</li>
+				<li>arr4 = ['a','b','c',1,2,3]</li>
+			</ul>
+		</p>
+				
+	</body>
+</html>

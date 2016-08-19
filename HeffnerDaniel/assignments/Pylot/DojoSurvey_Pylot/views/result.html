@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Survey Result</title>
+	<link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+</head>
+<body>
+	<div id="confirm">
+		<h3>Thanks for submitting this form! You have submitted this form {{ submits }} times now.</h3>
+	</div>
+	<div id="container">
+		<h3>Submitted Information</h3>
+		<div id="labels">
+			<p>Name:</p>
+			<p>Dojo Location:</p>
+			<p>Favorite Language:</p>
+			<p>Comment:</p>
+		</div><!--
+		--><div id="inputs">
+			<p>{{ name }}</p>
+			<p>{{ location }}</p>
+			<p>{{ language }}</p>
+			<p>{{ comment }}</p>
+		</div>
+		<form action="/">
+			<input type="submit" value="Go Back">
+		</form>
+	</div>
+</body>
+</html>
