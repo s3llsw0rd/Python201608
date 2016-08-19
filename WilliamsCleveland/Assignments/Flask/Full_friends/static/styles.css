@@ -1,0 +1,17 @@
+.container{
+	width: 500px;
+    background-color: darkgrey;
+    border: 2px solid black;
+    margin: 0px auto;
+}
+
+.edit {
+       border: 1px solid black;
+}
+label { 
+    display:block;
+}
+input{
+	border: 1px solid black;
+	margin-bottom: 20px;
+}

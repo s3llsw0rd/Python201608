@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Email Validation</title>
+  <style type="text/css" media="screen">
+    .red  { color:red; }
+  </style>
+</head>
+<body>
+  <h1>Email Validate</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p class='red'>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form action='/create' method='POST'>
+    <label for="email">Email: <input type="text" minlength="5" name="email" id="email"></label>
+    <input type="submit" value="Add">
+  </form>
+
+  {% for user in users %}
+    <p>{{ user['email'] }}</p>
+  {% endfor %}
+
+</body>
+</html>
