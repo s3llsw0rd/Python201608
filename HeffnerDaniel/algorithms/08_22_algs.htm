@@ -1,0 +1,129 @@
+<html>
+	<head>
+		<title>August 22 Algorithms</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			//setup
+
+			function randomarr(len){
+				arr = []
+				for (var i = 0; i < len; i++){
+					arr.push(Math.floor(Math.random()*100 + 1))
+				}
+				return arr;
+			}
+
+			var arr = randomarr(Math.floor(Math.random()*10 + 5))
+
+			//algorithms
+			function minToFront(arr){
+				var mindex = 0;
+				for (var i = 0; i < arr.length; i++){
+					if (arr[i] < arr[mindex]){
+						mindex = i;
+					}
+				}
+				var tmp = 0;
+				for (var j = mindex; j > 0; j--){
+					tmp = arr[j-1];
+					arr[j-1] = arr[j];
+					arr[j] = tmp;
+				}
+				return arr;
+			}
+
+			function reverse(arr){
+				var tmp = 0;
+				for (var i = 0; i < arr.length/2; i++){
+					tmp = arr[i];
+					arr[i] = arr[arr.length-i-1];
+					arr[arr.length-i-1] = tmp;
+				}
+				return arr;
+			}
+
+			function rotate1(arr, shift){
+				var tmp = 0;
+				for (var i = 0; i<shift; i++){
+					tmp = arr[arr.length-1];
+					for (var j = arr.length-1; j > 0; j--){
+						arr[j] = arr[j-1];
+					}
+					arr[0] = tmp;
+				}
+				return arr;
+			}
+
+			function rotate2(arr, shift){
+				var len = arr.length;
+				if (shift > len){
+					shift = shift%len;
+				}
+				for (var i = 0; i < (len - shift); i++){
+					arr[arr.length] = arr[i];
+				}
+				for (var i = 0; i < len; i++){
+					arr[i] = arr[i + (len - shift)];
+				}
+				arr.length = len;
+				return arr;
+			}
+
+			function rotate3(arr, shift){
+				var len = arr.length;
+				if (Math.abs(shift) > len){
+					shift = shift%len;
+				}
+				if (shift < 0){
+					shift = len + shift;
+				}
+				for (var i = 0; i < (len - shift); i++){
+					arr[arr.length] = arr[i];
+				}
+				for (var i = 0; i < len; i++){
+					arr[i] = arr[i + (len - shift)];
+				}
+				arr.length = len;
+				return arr;
+			}
+
+
+		</script>
+		<style type="text/css">
+			* {
+				font-family: sans-serif;
+			}
+			h2 {
+				margin-top: 50px;
+			}
+			label {
+				display: block;
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>August 22 Algorithms</h1>
+		<h2>More Modifying Arrays</h2>
+		<p>In the console:
+			<ul>
+				<li>minToFront(arr)</li>
+				<li>reverse(arr)</li>
+				<li>rotate1(arr, shift) AND rotate2(arr, shift)</li>
+				<ul>
+					<li>'shift' tells the function how many spaces to shift each value to the right.</li>
+					<li>'shift' must be positive</li>
+					<li>values wrap around</li>
+				</ul>
+				<li>rotate3(arr, shift)</li>
+				<ul>
+					<li>'shift' tells the function how many spaces to shift each value.</li>
+					<li>'shift' can be either negative or positive</li>
+					<li>values wrap around</li>
+				</ul>
+			</ul>
+		</p>
+		<p>The variable arr contains an array of random length filled with random numbers. Run randomarr(len) where len is the length of the array that you want in order to get a new one.</p>
+				
+	</body>
+</html>
