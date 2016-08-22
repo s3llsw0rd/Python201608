@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Google Directions API</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/js/scripts.js"></script>
+</head>
+<body>
+	<h1>Get Directions</h1>
+	<form action="/directions" method="POST">
+		<label>From: <input type="text" name="start_loc"></label>
+		<label>To: <input type="text" name="end_loc"></label>
+		<input type="submit" value="Get Directions">
+	</form>
+	<div id="directions"></div>
+</body>
+</html>
