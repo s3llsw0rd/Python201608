@@ -1,0 +1,21 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/static/css/styles2.css" type="text/css">
+    <title>Courses</title>
+</head>
+<body>
+    <div id="container">
+        <div id='info'>
+            <h3>Are you sure you want to delete the following course?</h3>
+            <p>Name: {{info['course_name']}}</p>
+            <p>Description: {{info['description']}}</p>
+            <form action='/'>
+                <input type='submit' value='No' id='no'/>
+            </form>
+            <form action='/courses/{{ info['id'] }}'>
+                <input type='submit'  value='Yes! I want to delete this' id='yes'/>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

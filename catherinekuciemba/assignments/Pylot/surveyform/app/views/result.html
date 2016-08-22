@@ -1,0 +1,20 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <title>Survey Form</title>
+</head>
+<body>
+    <div id ="container">
+        <div id="content">
+            <h4>Submitted Information:</h4>
+            <p>Name: <span>{{name}}</p>
+            <p>Dojo Location: <span>{{location}}</p>
+            <p>Favorite Language: <span>{{language}}</p>
+            <p>Comment: <span>{{comment}}</p>
+            <form action='/'>
+                <input type='submit' value="Go Back">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
